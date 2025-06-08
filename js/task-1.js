@@ -1,11 +1,12 @@
-function checkStorage(available, ordered) {
-    if (available < ordered) {
-      return `Not enough goods in stock!`;
+function makeTransaction(quantity, pricePerDroid, customerCredits) {
+    let totalPrice = quantity * pricePerDroid;
+  
+    if (totalPrice > customerCredits) {
+      return `Insufficient funds!`;
+    } else {
+      return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
     }
-    else {
-      return `Order is processed, our manager will contact you`;
-    }
-  }
+}
   
 console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
 console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
